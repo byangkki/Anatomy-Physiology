@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KiddoA&P: The Ultimate Interactive Anatomy & Physiology Academy</title>
+    <title>KiddoA&P Academy: Batch 1 & 2 (Modules 1-8)</title>
     <style>
         :root {
             --primary: #4f46e5;
@@ -140,9 +140,9 @@
             border-color: #fbcfe8;
         }
 
-        p {
+        p, li {
             line-height: 1.6;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: #334155;
         }
 
@@ -151,9 +151,44 @@
             margin-bottom: 12px;
         }
 
-        li {
-            margin-bottom: 6px;
-            color: #334155;
+        /* Interactive Elements */
+        .interactive-box {
+            padding: 15px;
+            background: white;
+            border-radius: 12px;
+            border: 1px dashed var(--accent);
+            text-align: left;
+            margin-top: 10px;
+        }
+
+        input.game-input {
+            padding: 8px 12px;
+            border: 2px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            width: 120px;
+            margin-right: 10px;
+        }
+
+        button.action-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        button.action-btn:hover {
+            background: var(--primary-hover);
+        }
+
+        .feedback-msg {
+            margin-top: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
         }
 
         /* Quiz Styles */
@@ -205,50 +240,16 @@
             display: none;
         }
 
-        .interactive-box {
-            padding: 15px;
-            background: white;
-            border-radius: 8px;
-            border: 1px dashed var(--accent);
-            text-align: center;
-        }
-
-        button.action-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            margin-top: 10px;
-            transition: background 0.2s;
-        }
-
-        button.action-btn:hover {
-            background: var(--primary-hover);
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-            }
-            sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-            }
-            main {
-                height: auto;
-                padding: 20px;
-            }
+            body { flex-direction: column; }
+            sidebar { width: 100%; height: auto; position: relative; }
+            main { height: auto; padding: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- SIDEBAR NAVIGATION PARA SA MGA MODULES -->
+    <!-- SIDEBAR NAVIGATION -->
     <sidebar>
         <div class="brand">
             🧬 KiddoA&P Academy
@@ -258,21 +259,24 @@
             <li class="module-item" onclick="switchModule(1)">Module 2: Basic Chemistry</li>
             <li class="module-item" onclick="switchModule(2)">Module 3: Cells</li>
             <li class="module-item" onclick="switchModule(3)">Module 4: Tissues</li>
-            <li class="module-item" onclick="switchModule(4)">Module 5: Integumentary System</li>
+            <li class="module-item" onclick="switchModule(4)">Module 5: Integumentary</li>
             <li class="module-item" onclick="switchModule(5)">Module 6: Skeletal System</li>
             <li class="module-item" onclick="switchModule(6)">Module 7: Joints</li>
             <li class="module-item" onclick="switchModule(7)">Module 8: Muscular System</li>
             <li class="module-item" onclick="switchModule(8)">Module 9: Nervous System</li>
-            <li class="module-item" onclick="switchModule(9)">Module 10: Sensory System</li>
-            <li class="module-item" onclick="switchModule(10)">Module 11: Cardiovascular System</li>
-            <li class="module-item" onclick="switchModule(11)">Module 12: Lymphatic & Immune</li>
-            <li class="module-item" onclick="switchModule(12)">Module 13: Respiratory System</li>
-            <li class="module-item" onclick="switchModule(13)">Module 14: Digestive System</li>
-            <li class="module-item" onclick="switchModule(14)">Module 15: Urinary System</li>
-            <li class="module-item" onclick="switchModule(15)">Module 16: Fluid, Electrolyte & Acid-Base</li>
+            <li class="module-item" onclick="switchModule(9)">Module 10: Special Senses</li>
+            <li class="module-item" onclick="switchModule(10)">Module 11: Endocrine System</li>
+            <li class="module-item" onclick="switchModule(11)">Module 12: Cardiovascular System</li>
+            <li class="module-item" onclick="switchModule(12)">Module 13: Heart Anatomy</li>
+            <li class="module-item" onclick="switchModule(13)">Module 14: Respiratory System</li>
+            <li class="module-item" onclick="switchModule(14)">Module 15: Digestive System</li>
+            <li class="module-item" onclick="switchModule(15)">Module 16: Urinary System</li>
             <li class="module-item" onclick="switchModule(16)">Module 17: Reproductive System</li>
-            <li class="module-item" onclick="switchModule(17)">Module 18: Human Development & Pregnancy</li>
-            <li class="module-item" onclick="switchModule(18)">Module 19: Genetics</li>
+            <li class="module-item" onclick="switchModule(17)">Module 18: Immune & Lymphatic</li>
+            <li class="module-item" onclick="switchModule(18)">Module 19: Human Development</li>
+
+
+
         </ul>
     </sidebar>
 
@@ -283,34 +287,36 @@
         <div class="module-content active">
             <h1>Module 1: Introduction to Anatomy & Physiology</h1>
             <div class="card game-card">
-                <div class="card-title">🎮 Interactive Game: Directional Body Map</div>
-                <p>Hanapin ang tamang pwesto sa katawan!</p>
+                <div class="card-title">🎮 Interactive Mini-Game: Body Direction Challenge</div>
+                <p>Saan nakapwesto ang puso kumpara sa baga? (Hint: Anterior/Posterior o Superior/Inferior)</p>
                 <div class="interactive-box">
-                    <p id="m1-game-text">I-click ang button para simulan ang mini position challenge.</p>
-                    <button class="action-btn" onclick="playM1Game()">Subukan ang Laro</button>
+                    <p>Ang puso ay atin namang matatagpuan sa <b>____</b> na bahagi ng dibdib kaysa sa gulugod.</p>
+                    <input type="text" id="m1-input" class="game-input" placeholder="Isulat dito">
+                    <button class="action-btn" onclick="checkM1Game()">I-check</button>
+                    <div id="m1-feedback" class="feedback-msg"></div>
                 </div>
             </div>
             <div class="card curiosity-card">
-                <div class="card-title">💡 Real-Life Curiosity: Bakit may iisang Medical Language?</div>
-                <p>Naisip mo ba kung bakit kapag nagpatingin ka sa doktor, sinasabi nilang masakit ang 'Left Upper Quadrant' sa halip na 'kaliwang bahagi lang sa taas'? Para kahit nasaan ka mang sulok ng mundo, iisa ang kahulugan ng bawat termino para sa kaligtasan ng pasyente!</p>
+                <div class="card-title">💡 Real-Life Curiosity: Bakit May Iisang Medical Language sa Buong Mundo?</div>
+                <p>Ginawa ito para sa kaligtasan ng mga pasyente—para walang maling magkaunawaan ang mga doktor, nurse, o paramediko kahit magkaiba man sila ng wika o lahi!</p>
             </div>
             <div class="card">
-                <div class="card-title">📖 Core Lecture</div>
-                <p><b>Anatomy</b> ang pag-aaral ng istruktura o mga piyesa ng katawan, habang ang <b>Physiology</b> ay kung paano sila gumagalaw at nagtutulungan.</p>
-                <p><b>Levels of Organization:</b> Chemical ➔ Cell ➔ Tissue ➔ Organ ➔ Organ System ➔ Organism.</p>
-                <p><b>Homeostasis:</b> Ang super-power ng katawan para panatilihing balanse ang temperatura at fluid sa loob.</p>
+                <div class="card-title">📖 Comprehensive Lecture Notes</div>
+                <p><b>1. Kahulugan:</b> Ang <b>Anatomy</b> ay tumitingin sa istruktura, habang ang <b>Physiology</b> ay sa paggana.</p>
+                <p><b>2. Levels:</b> Chemical, Cellular, Tissue, Organ, Organ System, Organism.</p>
+                <p><b>3. Homeostasis:</b> Kakayahan ng katawan na panatilihing balanse ang panloob na kalagayan.</p>
             </div>
             <div class="card">
-                <div class="card-title">📝 5-Item Quiz</div>
+                <div class="card-title">📝 5-Item Mastery Quiz</div>
                 <div class="quiz-container" data-answer="1">
-                    <p class="quiz-question">1. Ano ang tawag sa pag-aaral kung paano gumagana ang mga bahagi ng katawan?</p>
+                    <p class="quiz-question">1. Alin sa mga sumusunod ang tamang naglalarawan sa Physiology?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="checkAnswer(this, 0, 1)">A) Anatomy</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 1, 1)">B) Physiology</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 2, 1)">C) Histology</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 3, 1)">D) Pathology</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 0, 1)">A) Pag-aaral ng mga buto at balangkas lamang</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 1, 1)">B) Pag-aaral kung paano gumagana at kumikilos ang mga bahagi ng katawan</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 2, 1)">C) Pag-aaral ng mga mikrobyo at virus sa paligid</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 3, 1)">D) Pag-aaral ng mga nakakahawang sakit</button>
                     </div>
-                    <div class="explanation">Tamang Sagot: <b>B) Physiology</b>. Ang Anatomy ay ukol sa istruktura, samantalang ang Physiology ay nakatutok sa paggana.</div>
+                    <div class="explanation">Tamang Sagot: <b>B</b>.</div>
                 </div>
             </div>
         </div>
@@ -319,128 +325,139 @@
         <div class="module-content">
             <h1>Module 2: Basic Chemistry of Life</h1>
             <div class="card game-card">
-                <div class="card-title">🎮 Interactive Game: Atom Factory</div>
-                <p>Bumuo ng tamang molecule!</p>
+                <div class="card-title">🎮 Interactive Mini-Game: pH Scale Balancer</div>
+                <p>Kung ang pH ay nasa pagitan ng 0 hanggang 6.9, ito ay Acid. Ano ang tawag sa may pH na 7.1 hanggang 14?</p>
                 <div class="interactive-box">
-                    <p>Mag-combine ng 2 Hydrogen at 1 Oxygen para makabuo ng Tubig ($H_2O$).</p>
-                    <button class="action-btn" onclick="alert('Tagumpay! Nabuo mo ang Water Molecule!')">Bumuo ng Tubig</button>
+                    <input type="text" id="m2-input" class="game-input" placeholder="Isulat dito">
+                    <button class="action-btn" onclick="checkM2Game()">I-check</button>
+                    <div id="m2-feedback" class="feedback-msg"></div>
                 </div>
             </div>
             <div class="card curiosity-card">
-                <div class="card-title">💡 Real-Life Curiosity: Bakit kailangan natin ng Asin at Electrolytes?</div>
-                <p>Bakit kapag pawis na pawis ka pagkatapos maglaro ay hinahanap ng katawan mo ang sports drink na may electrolytes? Dahil ang mga mineral na ito ang nagpapadaloy ng electrical signals sa nerbyos at nagpapakilos sa mga kalamnan mo!</p>
+                <div class="card-title">💡 Real-Life Curiosity: Bakit Kailangan Natin ng Asin at Electrolytes?</div>
+                <p>Ang Sodium at Potassium ay gumagamit ng electrical impulses para makapag-isip ang utak at kumilos ang muscles.</p>
             </div>
             <div class="card">
-                <div class="card-title">📖 Core Lecture</div>
-                <p>Ang katawan ay binubuo ng mga elemento tulad ng Carbon, Hydrogen, Oxygen, at Nitrogen.</p>
-                <p><b>pH Scale:</b> Sinusukat ang acidity. Ang normal blood pH ay nasa 7.35 hanggang 7.45.</p>
+                <div class="card-title">📖 Comprehensive Lecture Notes</div>
+                <p><b>1. Elements:</b> 96% ay CHON.</p>
+                <p><b>2. Water:</b> 60% ng katawan.</p>
+                <p><b>3. pH Balance:</b> Normal na dugo ay 7.35 hanggang 7.45.</p>
             </div>
             <div class="card">
-                <div class="card-title">📝 5-Item Quiz</div>
+                <div class="card-title">📝 5-Item Mastery Quiz</div>
                 <div class="quiz-container" data-answer="1">
-                    <p class="quiz-question">1. Anong elemento ang may pinakamalaking porsyento sa katawan ng tao?</p>
+                    <p class="quiz-question">1. Anong elemento ang may pinakamalaking porsyento sa katawan dahil sa tubig?</p>
                     <div class="options-grid">
                         <button class="option-btn" onclick="checkAnswer(this, 0, 1)">A) Carbon</button>
                         <button class="option-btn" onclick="checkAnswer(this, 1, 1)">B) Oxygen</button>
                         <button class="option-btn" onclick="checkAnswer(this, 2, 1)">C) Nitrogen</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 3, 1)">D) Calcium</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 3, 1)">D) Iron</button>
                     </div>
-                    <div class="explanation">Tamang Sagot: <b>B) Oxygen</b> dahil malaking bahagi ng ating katawan ay binubuo ng tubig ($H_2O$).</div>
+                    <div class="explanation">Tamang Sagot: <b>B) Oxygen</b>.</div>
                 </div>
             </div>
         </div>
 
         <!-- MODULE 3 -->
         <div class="module-content">
-            <h1>Module 3: Cells (Ang Lungsod ng mga Selula)</h1>
+            <h1>Module 3: Cells</h1>
             <div class="card game-card">
-                <div class="card-title">🎮 Interactive Game: Cell City Builder</div>
-                <p>Ilagay ang power plant sa tamang pwesto.</p>
+                <div class="card-title">🎮 Interactive Mini-Game: Organelle Match</div>
+                <p>Anong organelle ang tinaguriang 'Powerhouse of the Cell'?</p>
                 <div class="interactive-box">
-                    <p>Aling organelle ang gagawa ng ATP o enerhiya?</p>
-                    <button class="action-btn" onclick="alert('Tama! Mitochondria ang power plant.')">Mitochondria</button>
+                    <input type="text" id="m3-input" class="game-input" placeholder="Isulat dito">
+                    <button class="action-btn" onclick="checkM3Game()">I-check</button>
+                    <div id="m3-feedback" class="feedback-msg"></div>
                 </div>
             </div>
             <div class="card curiosity-card">
-                <div class="card-title">💡 Real-Life Curiosity: Bakit mas maraming Mitochondria ang athletes?</div>
-                <p>Dahil ang selula ay parang pabrika—kapag laging ginagamit sa mabibigat na ehersisyo, nagdaragdag ito ng mga makina (mitochondria) para mas lumakas pa ang katawan!</p>
+                <div class="card-title">💡 Real-Life Curiosity: Mitochondria sa Athletes</div>
+                <p>Mas maraming power plants (mitochondria) ang nabubuo sa muscles kapag laging nag-e-ehersisyo.</p>
             </div>
             <div class="card">
-                <div class="card-title">📖 Core Lecture</div>
-                <p><b>Nucleus:</b> Taguan ng DNA at control center.</p>
-                <p><b>Mitochondria:</b> Powerhouse o gumagawa ng ATP energy.</p>
-                <p><b>Cell Membrane:</b> Security guard na pumipili ng pumapasok at lumalabas.</p>
+                <div class="card-title">📖 Comprehensive Lecture Notes</div>
+                <p><b>1. Membrane:</b> Semi-permeable barrier.</p>
+                <p><b>2. Nucleus:</b> Taglay ang DNA.</p>
+                <p><b>3. Mitochondria:</b> Gumagawa ng ATP.</p>
             </div>
             <div class="card">
-                <div class="card-title">📝 5-Item Quiz</div>
+                <div class="card-title">📝 5-Item Mastery Quiz</div>
                 <div class="quiz-container" data-answer="1">
-                    <p class="quiz-question">1. Aling bahagi ng cell ang tinatawag na Powerhouse?</p>
+                    <p class="quiz-question">1. Pangunahing tungkulin ng Cell Membrane?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="checkAnswer(this, 0, 1)">A) Nucleus</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 1, 1)">B) Mitochondria</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 2, 1)">C) Ribosome</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 3, 1)">D) Cell Wall</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 0, 1)">A) Gumawa ng ATP</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 1, 1)">B) Kontrolin ang pumapasok at lumalabas</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 2, 1)">C) Mag-imbak ng DNA</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 3, 1)">D) Magbigay kulay</button>
                     </div>
-                    <div class="explanation">Tamang Sagot: <b>B) Mitochondria</b>. Ito ang nagproproduce ng ATP energy ng selula.</div>
+                    <div class="explanation">Tamang Sagot: <b>B</b>.</div>
                 </div>
             </div>
         </div>
 
         <!-- MODULE 4 -->
         <div class="module-content">
-            <h1>Module 4: Tissues (Ang mga Tela ng Katawan)</h1>
+            <h1>Module 4: Tissues</h1>
             <div class="card game-card">
-                <div class="card-title">🎮 Interactive Game: Tissue Match Maker</div>
+                <div class="card-title">🎮 Interactive Mini-Game: Tissue Type</div>
+                <p>Anong tissue ang bumubuo sa panlabas na linya ng ating balat?</p>
                 <div class="interactive-box">
-                    <p>Itugma ang linya ng balat sa tamang tissue type.</p>
-                    <button class="action-btn" onclick="alert('Magaling! Epithelial Tissue ang sagot.')">I-verify</button>
+                    <input type="text" id="m4-input" class="game-input" placeholder="Isulat dito">
+                    <button class="action-btn" onclick="checkM4Game()">I-check</button>
+                    <div id="m4-feedback" class="feedback-msg"></div>
                 </div>
             </div>
             <div class="card curiosity-card">
-                <div class="card-title">💡 Real-Life Curiosity: Bakit mabilis gumaling ang sugat sa pisngi kaysa sa buto?</div>
-                <p>Dahil ang iba't ibang tissue ay may kani-kaniyang bilis ng pag-rekober at suplay ng dugo!</p>
+                <div class="card-title">💡 Real-Life Curiosity: Pagpapagaling ng Tissues</div>
+                <p>Ang Epithelial tissues sa balat ay mas mabilis mag-regrow kaysa sa cartilage.</p>
             </div>
             <div class="card">
-                <div class="card-title">📖 Core Lecture</div>
-                <p><b>4 Uri ng Tissues:</b> Epithelial (Panangga/Lining), Connective (Dugo/Buto/Taba), Muscle (Pampagalaw), at Nervous (Nerbyos/Kuryente).</p>
+                <div class="card-title">📖 Comprehensive Lecture Notes</div>
+                <p><b>1. Epithelial:</b> Proteksyon at lining.</p>
+                <p><b>2. Connective:</b> Dugo, buto, at taba.</p>
+                <p><b>3. Muscle & Nervous:</b> Paggalaw at electrical signals.</p>
             </div>
             <div class="card">
-                <div class="card-title">📝 5-Item Quiz</div>
-                <div class="quiz-container" data-answer="1">
-                    <p class="quiz-question">1. Anong tissue ang bumubuo sa ating balat at nagpoprotekta sa panlabas?</p>
+                <div class="card-title">📝 5-Item Mastery Quiz</div>
+                <div class="quiz-container" data-answer="3">
+                    <p class="quiz-question">1. Tissue na nag-uugnay at kabilang ang dugo at buto?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="checkAnswer(this, 0, 1)">A) Muscle Tissue</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 1, 1)">B) Epithelial Tissue</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 2, 1)">C) Nervous Tissue</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 3, 1)">D) Connective Tissue</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 0, 3)">A) Epithelial</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 1, 3)">B) Muscle</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 2, 3)">C) Nervous</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 3, 3)">D) Connective Tissue</button>
                     </div>
-                    <div class="explanation">Tamang Sagot: <b>B) Epithelial Tissue</b>.</div>
+                    <div class="explanation">Tamang Sagot: <b>D) Connective Tissue</b>.</div>
                 </div>
             </div>
         </div>
 
         <!-- MODULE 5 -->
         <div class="module-content">
-            <h1>Module 5: Integumentary System (Balat)</h1>
+            <h1>Module 5: Integumentary System</h1>
             <div class="card game-card">
-                <div class="card-title">🎮 Interactive Game: Sunscreen Shield</div>
+                <div class="card-title">🎮 Interactive Mini-Game: Skin Layer Detective</div>
+                <p>Saang layer ng balat matatagpuan ang mga ugat ng dugo at sweat glands?</p>
                 <div class="interactive-box">
-                    <p>I-drag ang melanin shield level sa taong malapit sa ekwador.</p>
-                    <button class="action-btn" onclick="alert('Perfect! High melanin protection.')">Suriin</button>
+                    <input type="text" id="m5-input" class="game-input" placeholder="Isulat dito">
+                    <button class="action-btn" onclick="checkM5Game()">I-check</button>
+                    <div id="m5-feedback" class="feedback-msg"></div>
                 </div>
             </div>
             <div class="card curiosity-card">
-                <div class="card-title">💡 Real-Life Curiosity: Bakit iba-iba ang kulay ng balat ng tao?</div>
-                <p>Ito ay evolutionary sunscreen! Ang maitim na balat ay may mas maraming melanin para protektahan ang katawan laban sa matinding UV rays malapit sa ekwador.</p>
+                <div class="card-title">💡 Real-Life Curiosity: Bakit Iba-iba ang Kulay ng Balat?</div>
+                <p>Melanin acts as a natural evolutionary sunscreen to protect folate.</p>
             </div>
             <div class="card">
-                <div class="card-title">📖 Core Lecture</div>
-                <p><b>Epidermis:</b> Pinakalabas na balat. <b>Dermis:</b> May ugat ng dugo at sweat glands. <b>Hypodermis:</b> Taba sa ilalim.</p>
+                <div class="card-title">📖 Comprehensive Lecture Notes</div>
+                <p><b>1. Epidermis:</b> Panlabas na layer na may keratin at melanin.</p>
+                <p><b>2. Dermis:</b> May blood vessels at glands.</p>
+                <p><b>3. Hypodermis:</b> Taba para sa insulation.</p>
             </div>
             <div class="card">
-                <div class="card-title">📝 5-Item Quiz</div>
+                <div class="card-title">📝 5-Item Mastery Quiz</div>
                 <div class="quiz-container" data-answer="1">
-                    <p class="quiz-question">1. Anong pigment ang nagbibigay kulay sa balat at panlaban sa UV rays?</p>
+                    <p class="quiz-question">1. Anong pigment ang nagbibigay kulay at panangga sa UV rays?</p>
                     <div class="options-grid">
                         <button class="option-btn" onclick="checkAnswer(this, 0, 1)">A) Keratin</button>
                         <button class="option-btn" onclick="checkAnswer(this, 1, 1)">B) Melanin</button>
@@ -456,51 +473,65 @@
         <div class="module-content">
             <h1>Module 6: Skeletal System</h1>
             <div class="card game-card">
-                <div class="card-title">🎮 Interactive Game: Skeleton Puzzle</div>
-                <div class="interactive-box"><p>Buuin ang bungo at gulugod.</p><button class="action-btn" onclick="alert('Buo na ang buto!')">Buuin</button></div>
+                <div class="card-title">🎮 Interactive Mini-Game: Bone Count</div>
+                <p>Ilan ang kabuuang bilang ng mga buto sa isang normal na adult human?</p>
+                <div class="interactive-box">
+                    <input type="text" id="m6-input" class="game-input" placeholder="Numero">
+                    <button class="action-btn" onclick="checkM6Game()">I-check</button>
+                    <div id="m6-feedback" class="feedback-msg"></div>
+                </div>
             </div>
             <div class="card curiosity-card">
-                <div class="card-title">💡 Real-Life Curiosity: Bakit mas maraming buto ang baby kaysa sa matanda?</div>
-                <p>Ang sanggol ay may mga 270+ na buto na nagdidikit habang lumalaki sila para maging 206 na lang sa pagtanda!</p>
+                <div class="card-title">💡 Real-Life Curiosity: Sanggol vs Matanda</div>
+                <p>Mas marami ang buto ng sanggol dahil nagdidikit-dikit o nagfuese habang lumalaki sila.</p>
             </div>
             <div class="card">
-                <div class="card-title">📖 Core Lecture</div>
-                <p>Nagbibigay suporta, nagpoprotekta sa internal organs (tulad ng utak at puso), at nag-iimbak ng calcium.</p>
+                <div class="card-title">📖 Comprehensive Lecture Notes</div>
+                <p><b>1. Tungkulin:</b> Suporta, proteksyon, blood cells.</p>
+                <p><b>2. Axial Skeleton:</b> Skull, vertebral column, ribcage.</p>
+                <p><b>3. Appendicular:</b> Limbs at girdles.</p>
             </div>
             <div class="card">
-                <div class="card-title">📝 5-Item Quiz</div>
+                <div class="card-title">📝 5-Item Mastery Quiz</div>
                 <div class="quiz-container" data-answer="0">
-                    <p class="quiz-question">1. Ilang buto mayroon ang isang normal na adult human?</p>
+                    <p class="quiz-question">1. Ilang buto mayroon ang adult human?</p>
                     <div class="options-grid">
                         <button class="option-btn" onclick="checkAnswer(this, 0, 0)">A) 206</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 1, 0)">B) 300</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 2, 0)">C) 150</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 3, 0)">D) 500</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 1, 0)">B) 350</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 2, 0)">C) 180</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 3, 0)">D) 250</button>
                     </div>
-                    <div class="explanation">Tamang Sagot: <b>A) 206</b> na buto.</div>
+                    <div class="explanation">Tamang Sagot: <b>A) 206</b>.</div>
                 </div>
             </div>
         </div>
 
         <!-- MODULE 7 -->
         <div class="module-content">
-            <h1>Module 7: Joints (Mga Kasukasuan)</h1>
+            <h1>Module 7: Joints</h1>
             <div class="card game-card">
-                <div class="card-title">🎮 Interactive Game: Hinge vs Ball-and-Socket</div>
-                <div class="interactive-box"><p>I-match ang siko at balikat sa tamang uri ng joint.</p><button class="action-btn" onclick="alert('Tama ang match!')">Suriin</button></div>
+                <div class="card-title">🎮 Interactive Mini-Game: Joint Classification</div>
+                <p>Anong uri ng joint sa tuhod/siko ang gumagalaw sa iisang direksyon lamang?</p>
+                <div class="interactive-box">
+                    <input type="text" id="m7-input" class="game-input" placeholder="Isulat dito">
+                    <button class="action-btn" onclick="checkM7Game()">I-check</button>
+                    <div id="m7-feedback" class="feedback-msg"></div>
+                </div>
             </div>
             <div class="card curiosity-card">
-                <div class="card-title">💡 Real-Life Curiosity: Bakit parang may lumalangutot (crack) kapag iniunat ang daliri?</div>
-                <p>Ito ay dahil sa pagputok ng gas bubbles sa loob ng synovial fluid sa ating kasukasuan!</p>
+                <div class="card-title">💡 Real-Life Curiosity: Bakit Pumipitik ang Daliri?</div>
+                <p>Dahil sa gas bubbles na pumuputok sa loob ng synovial fluid.</p>
             </div>
             <div class="card">
-                <div class="card-title">📖 Core Lecture</div>
-                <p>Ang joints ay nagpapahintulot sa paggalaw. May Hinge (tuhod/siko) at Ball-and-Socket (balikat/balakang).</p>
+                <div class="card-title">📖 Comprehensive Lecture Notes</div>
+                <p><b>1. Synarthrosis:</b> Walang galaw.</p>
+                <p><b>2. Amphiarthrosis:</b> Kaunting galaw.</p>
+                <p><b>3. Diarthrosis:</b> Malayang gumagalaw (Hinge, Ball-and-Socket).</p>
             </div>
             <div class="card">
-                <div class="card-title">📝 5-Item Quiz</div>
+                <div class="card-title">📝 5-Item Mastery Quiz</div>
                 <div class="quiz-container" data-answer="1">
-                    <p class="quiz-question">1. Anong uri ng joint ang matatagpuan sa ating balikat na kayang umikot sa iba't ibang direksyon?</p>
+                    <p class="quiz-question">1. Joint na nagbibigay-daan sa pabilog na galaw tulad ng balikat?</p>
                     <div class="options-grid">
                         <button class="option-btn" onclick="checkAnswer(this, 0, 1)">A) Hinge joint</button>
                         <button class="option-btn" onclick="checkAnswer(this, 1, 1)">B) Ball-and-Socket joint</button>
@@ -516,141 +547,176 @@
         <div class="module-content">
             <h1>Module 8: Muscular System</h1>
             <div class="card game-card">
-                <div class="card-title">🎮 Interactive Game: Flex the Bicep</div>
-                <div class="interactive-box"><p>I-kontrata ang kalamnan para buhatin ang bigat.</p><button class="action-btn" onclick="alert('Nag-flex ang bicep!')">Buhatin</button></div>
+                <div class="card-title">🎮 Interactive Mini-Game: Muscle Type</div>
+                <p>Anong kalamnan ang kusang tumitibok sa puso?</p>
+                <div class="interactive-box">
+                    <input type="text" id="m8-input" class="game-input" placeholder="Isulat dito">
+                    <button class="action-btn" onclick="checkM8Game()">I-check</button>
+                    <div id="m8-feedback" class="feedback-msg"></div>
+                </div>
             </div>
             <div class="card curiosity-card">
-                <div class="card-title">💡 Real-Life Curiosity: Bakit sumasakit ang katawan kinabukasan pagkatapos mag-ehersisyo (DOMS)?</div>
-                <p>Dahil nagkakaroon ng maliliit na punit (micro-tears) sa muscle fibers na pinapayong pinagagaling ng katawan para maging mas matibay ito.</p>
+                <div class="card-title">💡 Real-Life Curiosity: Bakit Sumasakit ang Katawan (DOMS)?</div>
+                <p>Dahil sa micro-tears sa muscle fibers pagkatapos ng mabigat na ehersisyo.</p>
             </div>
             <div class="card">
-                <div class="card-title">📖 Core Lecture</div>
-                <p>Binubuo ng Skeletal muscles (pinapagalaw ang buto), Cardiac muscle (puso), at Smooth muscles (loob ng organs).</p>
+                <div class="card-title">📖 Comprehensive Lecture Notes</div>
+                <p><b>1. Skeletal:</b> Voluntary, may guhit.</p>
+                <p><b>2. Cardiac:</b> Involuntary, tanging sa puso.</p>
+                <p><b>3. Smooth:</b> Involuntary, sa internal organs.</p>
             </div>
             <div class="card">
-                <div class="card-title">📝 5-Item Quiz</div>
+                <div class="card-title">📝 5-Item Mastery Quiz</div>
                 <div class="quiz-container" data-answer="0">
-                    <p class="quiz-question">1. Anong uri ng kalamnan ang kinokontrol natin gamit ang ating kagustuhan (voluntary)?</p>
+                    <p class="quiz-question">1. Involuntary muscle na makikita sa pader ng panloob na organo?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="checkAnswer(this, 0, 0)">A) Skeletal muscle</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 1, 0)">B) Cardiac muscle</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 2, 0)">C) Smooth muscle</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 3, 0)">D) Visceral muscle</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 0, 0)">A) Smooth muscle</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 1, 0)">B) Skeletal muscle</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 2, 0)">C) Voluntary muscle</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 3, 0)">D) Striated muscle</button>
                     </div>
-                    <div class="explanation">Tamang Sagot: <b>A) Skeletal muscle</b>.</div>
+                    <div class="explanation">Tamang Sagot: <b>A) Smooth muscle</b>.</div>
                 </div>
             </div>
         </div>
-
+        
         <!-- MODULE 9 -->
         <div class="module-content">
             <h1>Module 9: Nervous System</h1>
             <div class="card game-card">
-                <div class="card-title">🎮 Interactive Game: Neuron Messenger</div>
-                <div class="interactive-box"><p>Magpadala ng kuryente mula sa daliri papuntang utak.</p><button class="action-btn" onclick="alert('Nakarating ang signal sa utak!')">Ipadala</button></div>
+                <div class="card-title">🎮 Interactive Mini-Game: Neuron Part Finder</div>
+                <p>Anong bahagi ng neuron ang nagsisilbing "wire" na nagpapadala ng electrical signals palayo sa cell body patungo sa ibang cell?</p>
+                <div class="interactive-box">
+                    <input type="text" id="m9-input" class="game-input" placeholder="Isulat dito">
+                    <button class="action-btn" onclick="checkM9Game()">I-check</button>
+                    <div id="m9-feedback" class="feedback-msg"></div>
+                </div>
             </div>
             <div class="card curiosity-card">
-                <div class="card-title">💡 Real-Life Curiosity: Gaano ka bilis tumakbo ang nerve impulse sa katawan mo?</div>
-                <p>Umaabot ito ng hanggang 120 metro bawat segundo! Kaya mo namang iurong agad ang kamay mo kapag nakahawak ka sa mainit.</p>
+                <div class="card-title">💡 Real-Life Curiosity: Gaano ba Bilis ang Impulses ng Utak?</div>
+                <p>Ang mga electrical signals sa iyong nerbiyo ay pwedeng tumakbo hanggang 400 kilometro bawat oras—mas mabilis pa sa isang Sports Car!</p>
             </div>
             <div class="card">
-                <div class="card-title">📖 Core Lecture</div>
-                <p><b>Central Nervous System (CNS):</b> Utak at Spinal Cord. <b>Peripheral Nervous System (PNS):</b> Mga nerbyos sa buong katawan.</p>
+                <div class="card-title">📖 Comprehensive Lecture Notes</div>
+                <p><b>1. Central Nervous System (CNS):</b> Utak at Spinal Cord (command center).</p>
+                <p><b>2. Peripheral Nervous System (PNS):</b> Mga nerbiyo na kumakalat sa buong katawan.</p>
+                <p><b>3. Neuron:</b> Basic unit ng nervous system (Dendrites, Cell Body, Axon).</p>
             </div>
             <div class="card">
-                <div class="card-title">📝 5-Item Quiz</div>
+                <div class="card-title">📝 5-Item Mastery Quiz</div>
                 <div class="quiz-container" data-answer="1">
-                    <p class="quiz-question">1. Alin ang pangunahing organ na nagkokontrol sa buong nervous system?</p>
+                    <p class="quiz-question">1. Alin ang bumubuo sa Central Nervous System (CNS)?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="checkAnswer(this, 0, 1)">A) Puso</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 1, 1)">B) Utak</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 2, 1)">C) Atay</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 3, 1)">D) Baga</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 0, 1)">A) Utak at mga nerbiyo sa kamay</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 1, 1)">B) Utak at Spinal Cord</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 2, 1)">C) Spinal Cord at mga kalamnan</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 3, 1)">D) Lahat ng nerbiyo sa katawan</button>
                     </div>
-                    <div class="explanation">Tamang Sagot: <b>B) Utak</b>.</div>
+                    <div class="explanation">Tamang Sagot: <b>B) Utak at Spinal Cord</b>.</div>
                 </div>
             </div>
         </div>
 
         <!-- MODULE 10 -->
         <div class="module-content">
-            <h1>Module 10: Sensory System</h1>
+            <h1>Module 10: Special Senses</h1>
             <div class="card game-card">
-                <div class="card-title">🎮 Interactive Game: Five Senses Match</div>
-                <div class="interactive-box"><p>Kilalanin ang panlasa, pang-amoy, paningin, pandinig, at pandama.</p><button class="action-btn" onclick="alert('Lahat ng senses ay active!')">Suriin</button></div>
+                <div class="card-title">🎮 Interactive Mini-Game: Eye Layer Identifier</div>
+                <p>Anong bahagi ng mata ang tumatanggap ng liwanag at nagpapadala ng imahe patungo sa optic nerve?</p>
+                <div class="interactive-box">
+                    <input type="text" id="m10-input" class="game-input" placeholder="Isulat dito">
+                    <button class="action-btn" onclick="checkM10Game()">I-check</button>
+                    <div id="m10-feedback" class="feedback-msg"></div>
+                </div>
             </div>
             <div class="card curiosity-card">
-                <div class="card-title">💡 Real-Life Curiosity: Bakit parang walang lasa ang pagkain kapag ikaw ay may matinding sipon?</div>
-                <p>Dahil ang 80% ng iyong "panlasa" ay actually nanggagaling sa iyong pang-amoy (olfactory receptors)!</p>
+                <div class="card-title">💡 Real-Life Curiosity: Bakit Pabaliktad ang Imahe sa Retina?</div>
+                <p>Ang imaheng pumapasok sa mata natin ay laging nakabaligtad (upside down), ngunit agad itong itinatama at pinapaganda ng ating utak sa loob ng milliseconds!</p>
             </div>
             <div class="card">
-                <div class="card-title">📖 Core Lecture</div>
-                <p>Tumutulong sa atin na maramdaman ang paligid gamit ang mata, tainga, ilong, dila, at balat.</p>
+                <div class="card-title">📖 Comprehensive Lecture Notes</div>
+                <p><b>1. Paningin (Eye):</b> Retina, Cornea, Lens, Rods (dilim), Cones (kulay).</p>
+                <p><b>2. Pandinig (Ear):</b> Cochlea, Eardrum, at tatlong maliliit na buto (Malleus, Incus, Stapes).</p>
+                <p><b>3. Panlasa at Pang-amoy:</b> Gustation (taste buds) at Olfaction (smell receptors).</p>
             </div>
             <div class="card">
-                <div class="card-title">📝 5-Item Quiz</div>
+                <div class="card-title">📝 5-Item Mastery Quiz</div>
                 <div class="quiz-container" data-answer="2">
-                    <p class="quiz-question">1. Anong bahagi ng mata ang kumokontrol sa dami ng liwanag na pumapasok?</p>
+                    <p class="quiz-question">1. Anong photoreceptor cells sa mata ang responsable sa pag-detect ng kulay at maliliwanag na detalye?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="checkAnswer(this, 0, 2)">A) Retina</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 0, 2)">A) Rods</button>
                         <button class="option-btn" onclick="checkAnswer(this, 1, 2)">B) Cornea</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 2, 2)">C) Pupil / Iris</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 3, 2)">D) Lens</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 2, 2)">C) Cones</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 3, 2)">D) Pupil</button>
                     </div>
-                    <div class="explanation">Tamang Sagot: <b>C) Pupil / Iris</b>. Ang iris ang nagpapaliit at nagpapalaki sa pupil depende sa liwanag.</div>
+                    <div class="explanation">Tamang Sagot: <b>C) Cones</b>.</div>
                 </div>
             </div>
         </div>
 
         <!-- MODULE 11 -->
         <div class="module-content">
-            <h1>Module 11: Cardiovascular System</h1>
+            <h1>Module 11: Endocrine System</h1>
             <div class="card game-card">
-                <div class="card-title">🎮 Interactive Game: Pump the Blood</div>
-                <div class="interactive-box"><p>I-bomba ang dugo sa baga at buong katawan.</p><button class="action-btn" onclick="alert('Lub-dub! Tumitibok ang puso.')">Bomba</button></div>
+                <div class="card-title">🎮 Interactive Mini-Game: Master Gland Quiz</div>
+                <p>Anong glandula sa base ng utak ang tinaguriang 'Master Gland' dahil kinokontrol nito ang iba pang glands?</p>
+                <div class="interactive-box">
+                    <input type="text" id="m11-input" class="game-input" placeholder="Isulat dito">
+                    <button class="action-btn" onclick="checkM11Game()">I-check</button>
+                    <div id="m11-feedback" class="feedback-msg"></div>
+                </div>
             </div>
             <div class="card curiosity-card">
-                <div class="card-title">💡 Real-Life Curiosity: Gaano kalayo ang lalakbayin ng dugo sa loob ng isang araw?</div>
-                <p>Kung pagdurugtungin mo ang lahat ng blood vessels sa katawan ng tao, aabot ito ng mahigit 100,000 kilometro—kayang ikutin ang buong mundo nang dalawang beses!</p>
+                <div class="card-title">💡 Real-Life Curiosity: Bakit Tayo Nakakaramdam ng Takot o Kaba?</div>
+                <p>Dahil ito sa Adrenaline gland na nagpapakawala ng hormones para sa "Fight or Flight" response, pinabibilis ang tibok ng puso para makatakbo o lumaban kaagad!</p>
             </div>
             <div class="card">
-                <div class="card-title">📖 Core Lecture</div>
-                <p><b>Puso:</b> May 4 na silid (Atria at Ventricles). <b>Arteries:</b> Nagdadala ng oxygen-rich blood papalayo sa puso. <b>Veins:</b> Bumabalik sa puso.</p>
+                <div class="card-title">📖 Comprehensive Lecture Notes</div>
+                <p><b>1. Hormones:</b> Chemical messengers na dumadaloy sa dugo.</p>
+                <p><b>2. Pituitary Gland:</b> Master gland.</p>
+                <p><b>3. Thyroid & Pancreas:</b> Panregula ng metabolismo at blood sugar (Insulin).</p>
             </div>
             <div class="card">
-                <div class="card-title">📝 5-Item Quiz</div>
+                <div class="card-title">📝 5-Item Mastery Quiz</div>
                 <div class="quiz-container" data-answer="0">
-                    <p class="quiz-question">1. Ano ang tawag sa blood vessel na nagdadala ng dugong may oxygen papalayo sa puso?</p>
+                    <p class="quiz-question">1. Anong hormone ang pinapalabas ng pancreas para ibaba ang level ng asukal sa dugo?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="checkAnswer(this, 0, 0)">A) Artery</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 1, 0)">B) Vein</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 2, 0)">C) Capillary</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 3, 0)">D) Valve</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 0, 0)">A) Insulin</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 1, 0)">B) Adrenaline</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 2, 0)">C) Thyroxine</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 3, 0)">D) Estrogen</button>
                     </div>
-                    <div class="explanation">Tamang Sagot: <b>A) Artery</b>. (Maliban sa pulmonary artery, karamihan sa arteries ay may dalang oxygenated blood).</div>
+                    <div class="explanation">Tamang Sagot: <b>A) Insulin</b>.</div>
                 </div>
             </div>
         </div>
 
         <!-- MODULE 12 -->
         <div class="module-content">
-            <h1>Module 12: Lymphatic & Immune System</h1>
+            <h1>Module 12: Cardiovascular System (Blood)</h1>
             <div class="card game-card">
-                <div class="card-title">🎮 Interactive Game: White Blood Cell Defender</div>
-                <div class="interactive-box"><p>Labanan ang mga pumapasok na mikrobyo!</p><button class="action-btn" onclick="alert('Natalo ang virus!')">Depensahan</button></div>
+                <div class="card-title">🎮 Interactive Mini-Game: Blood Cell Task</div>
+                <p>Anong uri ng blood cell ang pangunahing nagdadala ng oxygen sa iba't ibang bahagi ng katawan?</p>
+                <div class="interactive-box">
+                    <input type="text" id="m12-input" class="game-input" placeholder="Isulat dito">
+                    <button class="action-btn" onclick="checkM12Game()">I-check</button>
+                    <div id="m12-feedback" class="feedback-msg"></div>
+                </div>
             </div>
             <div class="card curiosity-card">
-                <div class="card-title">💡 Real-Life Curiosity: Bakit namamaga ang kulani (lymph nodes) sa leeg kapag may trangkaso ka?</div>
-                <p>Dahil nag-oovertime ang iyong immune cells sa loob ng lymph nodes para salain at patayin ang mga mikrobyo!</p>
+                <div class="card-title">💡 Real-Life Curiosity: Bakit Pula ang Dugo Natin?</div>
+                <p>Dahil ito sa protina na tinatawag na hemoglobin na mayroong iron (bakal). Kapag dumikit ang oxygen sa iron, nagiging matingkad na pula ang kulay nito!</p>
             </div>
             <div class="card">
-                <div class="card-title">📖 Core Lecture</div>
-                <p>Tinatanggal ang toxins at lumalaban sa mga impeksyon gamit ang White Blood Cells at Antibodies.</p>
+                <div class="card-title">📖 Comprehensive Lecture Notes</div>
+                <p><b>1. Red Blood Cells (RBC):</b> Nagdadala ng oxygen (Hemoglobin).</p>
+                <p><b>2. White Blood Cells (WBC):</b> Sundalo laban sa impeksyon.</p>
+                <p><b>3. Platelets:</b> Tumutulong sa pagpatak/pag-clot ng dugo kapag nasugatan.</p>
             </div>
             <div class="card">
-                <div class="card-title">📝 5-Item Quiz</div>
+                <div class="card-title">📝 5-Item Mastery Quiz</div>
                 <div class="quiz-container" data-answer="1">
-                    <p class="quiz-question">1. Alin ang pangunahing sundalo ng katawan laban sa mga mikrobyo at impeksyon?</p>
+                    <p class="quiz-question">1. Alin sa mga sumusunod ang selyo ng dugo na nagtatanggol sa katawan laban sa mga mikrobyo at sakit?</p>
                     <div class="options-grid">
                         <button class="option-btn" onclick="checkAnswer(this, 0, 1)">A) Red Blood Cells</button>
                         <button class="option-btn" onclick="checkAnswer(this, 1, 1)">B) White Blood Cells</button>
@@ -661,216 +727,264 @@
                 </div>
             </div>
         </div>
-
-        <!-- MODULE 13 -->
+                <!-- MODULE 13 -->
         <div class="module-content">
-            <h1>Module 13: Respiratory System</h1>
+            <h1>Module 13: Heart Anatomy & Blood Flow</h1>
             <div class="card game-card">
-                <div class="card-title">🎮 Interactive Game: Balloon Lungs</div>
-                <div class="interactive-box"><p>I-inflate ang baga habang umiinhale.</p><button class="action-btn" onclick="alert('Hininga pumasok, lumabas ang carbon dioxide!')">Huminga</button></div>
+                <div class="card-title">🎮 Interactive Mini-Game: Heart Chamber Quiz</div>
+                <p>Ilan ang kabuuang bilang ng mga silid (chambers) na mayroon ang isang normal na pusong pantao?</p>
+                <div class="interactive-box">
+                    <input type="text" id="m13-input" class="game-input" placeholder="Isulat ang numero">
+                    <button class="action-btn" onclick="checkM13Game()">I-check</button>
+                    <div id="m13-feedback" class="feedback-msg"></div>
+                </div>
             </div>
             <div class="card curiosity-card">
-                <div class="card-title">💡 Real-Life Curiosity: Bakit ba tayo humihikab kapag inaantok o pagod?</div>
-                <p>Para kumuha ng mas maraming oxygen at palamigin ang utak para manatili kang alerto!</p>
+                <div class="card-title">💡 Real-Life Curiosity: Gaano Katindi Tumibok ang Puso sa Isang Araw?</div>
+                <p>Ang iyong puso ay tumitibok ng humigit-kumulang 100,005 beses araw-araw at nagbobomba ng libu-libong galon ng dugo nang walang kahit isang segundong pahinga mula nang ikaw ay ipinanganak!</p>
             </div>
             <div class="card">
-                <div class="card-title">📖 Core Lecture</div>
-                <p><b>Alveoli:</b> Maliliit na bulsa sa baga kung saan nagkakapalitan ang Oxygen at Carbon Dioxide.</p>
+                <div class="card-title">📖 Comprehensive Lecture Notes</div>
+                <p><b>1. Atria:</b> Ang dalawang upper chambers ng puso na tumatanggap ng pumapasok na dugo.</p>
+                <p><b>2. Ventricles:</b> Ang dalawang lower chambers na nagbobomba ng dugo papalabas ng puso.</p>
+                <p><b>3. Valves:</b> Mga balbula (tulad ng Tricuspid at Mitral) na pumipigil sa pag-backflow ng dugo.</p>
             </div>
             <div class="card">
-                <div class="card-title">📝 5-Item Quiz</div>
-                <div class="quiz-container" data-answer="2">
-                    <p class="quiz-question">1. Saan nagaganap ang aktwal na palitan ng Oxygen at Carbon Dioxide sa baga?</p>
+                <div class="card-title">📝 5-Item Mastery Quiz</div>
+                <div class="quiz-container" data-answer="1">
+                    <p class="quiz-question">1. Alin sa mga sumusunod na silid ng puso ang nagbobomba ng oxygen-rich blood papunta sa buong katawan?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="checkAnswer(this, 0, 2)">A) Trachea</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 1, 2)">B) Bronchi</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 2, 2)">C) Alveoli</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 3, 2)">D) Larynx</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 0, 1)">A) Right Atrium</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 1, 1)">B) Left Ventricle</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 2, 1)">C) Right Ventricle</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 3, 1)">D) Left Atrium</button>
                     </div>
-                    <div class="explanation">Tamang Sagot: <b>C) Alveoli</b>. Ito ang maliliit na air sacs sa dulo ng bronchioles.</div>
+                    <div class="explanation">Tamang Sagot: <b>B) Left Ventricle</b>. Ito ang may pinakamakapal na pader dahil kailangan nitong magbomba sa buong katawan.</div>
                 </div>
             </div>
         </div>
 
         <!-- MODULE 14 -->
         <div class="module-content">
-            <h1>Module 14: Digestive System</h1>
+            <h1>Module 14: Respiratory System</h1>
             <div class="card game-card">
-                <div class="card-title">🎮 Interactive Game: Stomach Blender</div>
-                <div class="interactive-box"><p>Tunawin ang kinain gamit ang stomach acid.</p><button class="action-btn" onclick="alert('Natunaw ang pagkain!')">Tunawin</button></div>
+                <div class="card-title">🎮 Interactive Mini-Game: Air Sac Identifier</div>
+                <p>Ano ang tawag sa maliliit na air sacs sa loob ng baga kung saan nagaganap ang palitan ng Oxygen at Carbon Dioxide?</p>
+                <div class="interactive-box">
+                    <input type="text" id="m14-input" class="game-input" placeholder="Isulat dito">
+                    <button class="action-btn" onclick="checkM14Game()">I-check</button>
+                    <div id="m14-feedback" class="feedback-msg"></div>
+                </div>
             </div>
             <div class="card curiosity-card">
-                <div class="card-title">💡 Real-Life Curiosity: Bakit hindi natutunaw ng asido ang sarili nating sikmura?</div>
-                <p>Dahil ang sikmura ay may makapal at espesyal na layer ng mucus na nagpoprotekta rito laban sa sarili nitong asido!</p>
+                <div class="card-title">💡 Real-Life Curiosity: Bakit Tayo Naghihikab (Yawn)?</div>
+                <p>Kahit pinag-aaralan pa rin ito ng siyensya, ang isang sikat na teorya ay pinapalamig nito ang utak at nagdadala ng dagdag na oxygen kapag inaantok o pagod ang katawan!</p>
             </div>
             <div class="card">
-                <div class="card-title">📖 Core Lecture</div>
-                <p>Mula sa bibig ➔ Esophagus ➔ Stomach ➔ Small Intestine (sumisipsip ng sustansya) ➔ Large Intestine.</p>
+                <div class="card-title">📖 Comprehensive Lecture Notes</div>
+                <p><b>1. Upper Airway:</b> Ilong, Nasal Cavity, at Pharynx.</p>
+                <p><b>2. Lower Airway:</b> Larynx, Trachea (windpipe), Bronchi, at Alveoli.</p>
+                <p><b>3. Diaphragm:</b> Ang pangunahing kalamnan sa paghinga na kumakandado pababa kapag humihinga tayo ng hangin.</p>
             </div>
             <div class="card">
-                <div class="card-title">📝 5-Item Quiz</div>
-                <div class="quiz-container" data-answer="1">
-                    <p class="quiz-question">1. Saang bahagi ng digestive tract sinisipsip ang karamihan sa mga sustansya ng pagkain?</p>
+                <div class="card-title">📝 5-Item Mastery Quiz</div>
+                <div class="quiz-container" data-answer="2">
+                    <p class="quiz-question">1. Alin ang pangunahing kalamnan na nagpapakilos sa ating baga para makalanghap at makabuga ng hangin?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="checkAnswer(this, 0, 1)">A) Stomach</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 1, 1)">B) Small Intestine</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 2, 1)">C) Large Intestine</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 3, 1)">D) Esophagus</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 0, 2)">A) Heart</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 1, 2)">B) Trachea</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 2, 2)">C) Diaphragm</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 3, 2)">D) Alveoli</button>
                     </div>
-                    <div class="explanation">Tamang Sagot: <b>B) Small Intestine</b>.</div>
+                    <div class="explanation">Tamang Sagot: <b>C) Diaphragm</b>.</div>
                 </div>
             </div>
         </div>
 
         <!-- MODULE 15 -->
         <div class="module-content">
-            <h1>Module 15: Urinary System</h1>
+            <h1>Module 15: Digestive System</h1>
             <div class="card game-card">
-                <div class="card-title">🎮 Interactive Game: Kidney Filter</div>
-                <div class="interactive-box"><p>Salain ang dugo at alisin ang toxins.</p><button class="action-btn" onclick="alert('Malinis na ang dugo!')">Salain</button></div>
+                <div class="card-title">🎮 Interactive Mini-Game: Digestion Station</div>
+                <p>Saang bahagi ng digestive tract kadalasang nagaganap ang pinakamaraming pagsipsip (absorption) ng mga sustansya o nutrients?</p>
+                <div class="interactive-box">
+                    <input type="text" id="m15-input" class="game-input" placeholder="Isulat dito">
+                    <button class="action-btn" onclick="checkM15Game()">I-check</button>
+                    <div id="m15-feedback" class="feedback-msg"></div>
+                </div>
             </div>
             <div class="card curiosity-card">
-                <div class="card-title">💡 Real-Life Curiosity: Ilang beses sinasalin ng mga bato (kidneys) ang dugo mo sa isang araw?</div>
-                <p>Sinasala nito ang iyong buong dugo ng halos 40 beses araw-araw para alisin ang mga dumi!</p>
+                <div class="card-title">💡 Real-Life Curiosity: Gaano ba Haba ang Bituka ng Tao?</div>
+                <p>Ang maliit na bituka (small intestine) ay umaabot ng humigit-kumulang 20 talampakan o 6 na metro ang haba kapag inunat—mas mataas pa sa isang standard na kwarto!</p>
             </div>
             <div class="card">
-                <div class="card-title">📖 Core Lecture</div>
-                <p>Binubuo ng Kidneys (pagsala), Ureters, Bladder (imbakan ng ihi), at Urethra.</p>
+                <div class="card-title">📖 Comprehensive Lecture Notes</div>
+                <p><b>1. Mechanical Digestion:</b> Pagnguya at pagdurog ng pagkain.</p>
+                <p><b>2. Chemical Digestion:</b> Paggamit ng enzymes at acid sa sikmura.</p>
+                <p><b>3. Organs:</b> Mouth, Esophagus, Stomach, Small Intestine, Large Intestine.</p>
             </div>
             <div class="card">
-                <div class="card-title">📝 5-Item Quiz</div>
+                <div class="card-title">📝 5-Item Mastery Quiz</div>
                 <div class="quiz-container" data-answer="0">
-                    <p class="quiz-question">1. Alin ang pangunahing organ na nagsasala ng dumi mula sa dugo para maging ihi?</p>
+                    <p class="quiz-question">1. Anong organ ang tumutulong sa pagtunaw ng pagkain sa pamamagitan ng malalakas na asidong panunaw at enzymes?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="checkAnswer(this, 0, 0)">A) Kidney</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 1, 0)">B) Bladder</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 2, 0)">C) Liver</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 0, 0)">A) Stomach (Sikmura)</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 1, 0)">B) Esophagus</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 2, 0)">C) Large Intestine</button>
                         <button class="option-btn" onclick="checkAnswer(this, 3, 0)">D) Pancreas</button>
                     </div>
-                    <div class="explanation">Tamang Sagot: <b>A) Kidney</b> (Bato).</div>
+                    <div class="explanation">Tamang Sagot: <b>A) Stomach (Sikmura)</b>.</div>
                 </div>
             </div>
         </div>
 
         <!-- MODULE 16 -->
         <div class="module-content">
-            <h1>Module 16: Fluid, Electrolyte & Acid-Base Balance</h1>
+            <h1>Module 16: Urinary System</h1>
             <div class="card game-card">
-                <div class="card-title">🎮 Interactive Game: Water & Salt Balancer</div>
-                <div class="interactive-box"><p>Balansihin ang hydration level ng katawan.</p><button class="action-btn" onclick="alert('Balanse na ang fluid!')">Balansihin</button></div>
+                <div class="card-title">🎮 Interactive Mini-Game: Kidney Filter Quiz</div>
+                <p>Ano ang tawag sa pangunahing functional filtering units na matatagpuan sa loob ng ating mga bato (kidneys)?</p>
+                <div class="interactive-box">
+                    <input type="text" id="m16-input" class="game-input" placeholder="Isulat dito">
+                    <button class="action-btn" onclick="checkM16Game()">I-check</button>
+                    <div id="m16-feedback" class="feedback-msg"></div>
+                </div>
             </div>
             <div class="card curiosity-card">
-                <div class="card-title">💡 Real-Life Curiosity: Bakit delikado ang sobrang pag-inom ng maraming tubig nang mabilis (Water Intoxication)?</div>
-                <p>Dahil nahuhugasan nito ang sodium sa dugo (hyponatremia), kaya sumasakit ang ulo o maaaring mapanganib sa utak.</p>
+                <div class="card-title">💡 Real-Life Curiosity: Gaano Kadalas Salain ng Bato ang Dugo Natin?</div>
+                <p>Salain ng ating mga bato ang buong supply ng dugo ng ating katawan nang mahigit 40 beses sa isang araw, at nililinis nito ang mga dumi para gawing ihi!</p>
             </div>
             <div class="card">
-                <div class="card-title">📖 Core Lecture</div>
-                <p>Pinapanatili ng kidneys at respiratory system ang tamang fluid volume at pH balance ng katawan.</p>
+                <div class="card-title">📖 Comprehensive Lecture Notes</div>
+                <p><b>1. Kidneys:</b> Nagsasala ng dugo at gumagawa ng ihi.</p>
+                <p><b>2. Ureters:</b> Mga tubo na nagdadala ng ihi mula kidneys patungong pantog.</p>
+                <p><b>3. Bladder & Urethra:</b> Imbakan ng ihi at daanan palabas ng katawan.</p>
             </div>
             <div class="card">
-                <div class="card-title">📝 5-Item Quiz</div>
+                <div class="card-title">📝 5-Item Mastery Quiz</div>
                 <div class="quiz-container" data-answer="1">
-                    <p class="quiz-question">1. Alin ang organ system na may pinakamalaking papel sa pag-regulate ng water and electrolyte balance?</p>
+                    <p class="quiz-question">1. Alin ang tubo na nagdadala ng ihi mula sa pantog palabas ng katawan?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="checkAnswer(this, 0, 1)">A) Skeletal System</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 1, 1)">B) Urinary System (Kidneys)</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 2, 1)">C) Integumentary System</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 3, 1)">D) Digestive System</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 0, 1)">A) Ureter</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 1, 1)">B) Urethra</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 2, 1)">C) Nephron</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 3, 1)">D) Renal vein</button>
                     </div>
-                    <div class="explanation">Tamang Sagot: <b>B) Urinary System</b>.</div>
+                    <div class="explanation">Tamang Sagot: <b>B) Urethra</b>.</div>
                 </div>
             </div>
         </div>
-
+        
         <!-- MODULE 17 -->
         <div class="module-content">
             <h1>Module 17: Reproductive System</h1>
             <div class="card game-card">
-                <div class="card-title">🎮 Interactive Game: Life Cycle Match</div>
-                <div class="interactive-box"><p>Kilalanin ang male at female reproductive cells.</p><button class="action-btn" onclick="alert('Kumpleto ang match!')">Suriin</button></div>
+                <div class="card-title">🎮 Interactive Mini-Game: Gamete Match</div>
+                <p>Ano ang tawag sa male reproductive cell o sex cell na ginagawa ng mga testes?</p>
+                <div class="interactive-box">
+                    <input type="text" id="m17-input" class="game-input" placeholder="Isulat dito">
+                    <button class="action-btn" onclick="checkM17Game()">I-check</button>
+                    <div id="m17-feedback" class="feedback-msg"></div>
+                </div>
             </div>
             <div class="card curiosity-card">
-                <div class="card-title">💡 Real-Life Curiosity: Paano nagsisimula ang buhay ng isang tao mula sa dalawang maliliit na selula?</div>
-                <p>Mula sa pagtatagpo ngitlog (egg cell) at sperm cell, nagkakaroon ng kumpletong genetic code para sa isang bagong sanggol!</p>
+                <div class="card-title">💡 Real-Life Curiosity: Kamangha-manghang Cell Creation</div>
+                <p>Ang reproductive system ang tanging sistema sa katawan ng tao na hindi kailangan para sa kaligtasan ng isang indibidwal, ngunit ito ay ganap na mahalaga para sa patuloy na pag-iral ng buong sangkatauhan!</p>
             </div>
             <div class="card">
-                <div class="card-title">📖 Core Lecture</div>
-                <p>Nagpaparami at nagpapanatili ng lahi ng tao sa pamamagitan ng paggawa ng sex cells at hormones (estrogen/testosterone).</p>
+                <div class="card-title">📖 Comprehensive Lecture Notes</div>
+                <p><b>1. Male System:</b> Testes (gumagawa ng sperm at testosterone), Vas Deferens, at Urethra.</p>
+                <p><b>2. Female System:</b> Ovaries (gumagawa ng egg cells/ova at estrogen/progesterone), Fallopian tubes, Uterus (bahay-bata), at Vagina.</p>
+                <p><b>3. Fertilization:</b> Ang pagtatagpo ng sperm at egg cell para makabuo ng isang zygote.</p>
             </div>
             <div class="card">
-                <div class="card-title">📝 5-Item Quiz</div>
-                <div class="quiz-container" data-answer="0">
-                    <p class="quiz-question">1. Ano ang tawag sa male reproductive cell?</p>
+                <div class="card-title">📝 5-Item Mastery Quiz</div>
+                <div class="quiz-container" data-answer="1">
+                    <p class="quiz-question">1. Saan karaniwang nagaganap ang fertilization o pagtatagpo ng sperm at egg cell sa babae?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="checkAnswer(this, 0, 0)">A) Sperm</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 1, 0)">B) Ovum</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 2, 0)">C) Zygote</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 3, 0)">D) Hormone</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 0, 1)">A) Uterus (Bahay-bata)</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 1, 1)">B) Fallopian Tube (Oviduct)</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 2, 1)">C) Ovaries</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 3, 1)">D) Vagina</button>
                     </div>
-                    <div class="explanation">Tamang Sagot: <b>A) Sperm</b>.</div>
+                    <div class="explanation">Tamang Sagot: <b>B) Fallopian Tube</b>. Dito naglalakbay ang itlog mula sa ovary patungong uterus.</div>
                 </div>
             </div>
         </div>
 
         <!-- MODULE 18 -->
         <div class="module-content">
-            <h1>Module 18: Human Development & Pregnancy</h1>
+            <h1>Module 18: Immune & Lymphatic System</h1>
             <div class="card game-card">
-                <div class="card-title">🎮 Interactive Game: Pregnancy Timeline</div>
-                <div class="interactive-box"><p>Ayusin ang trimesters ng pagbubuntis.</p><button class="action-btn" onclick="alert('Naayos ang timeline!')">Ayusin</button></div>
+                <div class="card-title">🎮 Interactive Mini-Game: Antibody Defender</div>
+                <p>Anong organ sa ating lymphatic system ang nagsisilbing training ground ng mga white blood cells (T-cells) laban sa mga sakit?</p>
+                <div class="interactive-box">
+                    <input type="text" id="m18-input" class="game-input" placeholder="Isulat dito">
+                    <button class="action-btn" onclick="checkM18Game()">I-check</button>
+                    <div id="m18-feedback" class="feedback-msg"></div>
+                </div>
             </div>
             <div class="card curiosity-card">
-                <div class="card-title">💡 Real-Life Curiosity: Kailan tumitibok ang puso ng isang baby sa loob ng sinapupunan?</div>
-                <p>Kasing aga ng ika-4 hanggang ika-6 na linggo ng pagbubuntis, kahit napakaliit pa lang nito!</p>
+                <div class="card-title">💡 Real-Life Curiosity: Bakit Nagkakalagnat Tayo Kapag May Sakit?</div>
+                <p>Ang lagnat ay hindi sakit kundi isang depensa! Itinataas ng utak ang temperatura ng katawan para pahirapan ang pagdami ng mga bacteria at virus na mas gusto ang normal na temperatura, habang pinabibilis pa nito ang paggalaw ng immune cells!</p>
             </div>
             <div class="card">
-                <div class="card-title">📖 Core Lecture</div>
-                <p>Mula sa fertilization ➔ Embryo ➔ Fetus hanggang sa kapanganakan pagkatapos ng 9 na buwan.</p>
+                <div class="card-title">📖 Comprehensive Lecture Notes</div>
+                <p><b>1. Lymph Nodes:</b> Salaan ng lymph fluid na may dalang white blood cells.</p>
+                <p><b>2. Spleen at Thymus:</b> Mga organ na tumutulong mag-filter ng dugo at mag-mature ng lymphocytes.</p>
+                <p><b>3. Innate vs Adaptive Immunity:</b> Likas na pananggalang laban sa lahat kumpara sa espesyalisadong antibodies para sa partikular na virus.</p>
             </div>
             <div class="card">
-                <div class="card-title">📝 5-Item Quiz</div>
-                <div class="quiz-container" data-answer="1">
-                    <p class="quiz-question">1. Ilang buwan o linggo karaniwang tumatagal ang normal na pagbubuntis ng tao?</p>
+                <div class="card-title">📝 5-Item Mastery Quiz</div>
+                <div class="quiz-container" data-answer="2">
+                    <p class="quiz-question">1. Alin sa mga sumusunod ang pangunahing tungkulin ng lymph nodes sa katawan?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="checkAnswer(this, 0, 1)">A) 6 na buwan</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 1, 1)">B) 9 na buwan (mga 40 na linggo)</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 2, 1)">C) 12 na buwan</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 3, 1)">D) 3 buwan</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 0, 2)">A) Magbomba ng dugo sa buong katawan</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 1, 2)">B) Mag-imbak ng calcium para sa buto</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 2, 2)">C) Salain ang lymph fluid at saluhin ang mga mikrobyo o pathogens</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 3, 2)">D) Gumawa ng digestive enzymes</button>
                     </div>
-                    <div class="explanation">Tamang Sagot: <b>B) 9 na buwan</b> o humigit-kumulang 40 linggo.</div>
+                    <div class="explanation">Tamang Sagot: <b>C) Salain ang lymph fluid at saluhin ang mga mikrobyo</b>.</div>
                 </div>
             </div>
         </div>
 
         <!-- MODULE 19 -->
         <div class="module-content">
-            <h1>Module 19: Genetics</h1>
+            <h1>Module 19: Human Development & Integration</h1>
             <div class="card game-card">
-                <div class="card-title">🎮 Interactive Game: Punnett Square Table</div>
-                <div class="interactive-box"><p>I-fill out ang multiplication table para sa blood type alleles (AB at OO).</p><button class="action-btn" onclick="alert('Tamang napunan ang Punnett square!')">Sagutan</button></div>
+                <div class="card-title">🎮 Interactive Mini-Game: Academy Master Challenge</div>
+                <p>Ano ang pangkalahatang tawag sa estado ng balanse o pagkakaisa ng lahat ng sistema sa katawan na pinag-aralan natin mula Module 1 hanggang 18?</p>
+                <div class="interactive-box">
+                    <input type="text" id="m19-input" class="game-input" placeholder="Isulat dito">
+                    <button class="action-btn" onclick="checkM19Game()">I-check</button>
+                    <div id="m19-feedback" class="feedback-msg"></div>
+                </div>
             </div>
             <div class="card curiosity-card">
-                <div class="card-title">💡 Real-Life Curiosity: Bakit kaya ang kulay ng mata o buhok mo ay namana mo sa iyong mga magulang?</div>
-                <p>Dahil sa DNA at genes na ipinapasa sa pamamagitan ng dominant at recessive alleles!</p>
+                <div class="card-title">💡 Real-Life Curiosity: Ang Himala ng Pagtutulungan ng Katawan</div>
+                <p>Binabati kita! Natapos mo ang lahat ng 19 modules ng KiddoA&P Academy! Ipinapakita nito na ang iyong utak, puso, baga, at trilyun-trilyong selula ay nagtutulungan bilang isang napakagandang obra maestra araw-araw nang hindi mo namamalayan.</p>
             </div>
             <div class="card">
-                <div class="card-title">📖 Core Lecture</div>
-                <p><b>Genetics:</b> Pag-aaral ng pagmana ng katangian. Ang Dominant trait ay mas nangingibabaw kaysa sa Recessive trait.</p>
+                <div class="card-title">📖 Comprehensive Lecture Notes</div>
+                <p><b>1. Integration:</b> Walang nag-iisang sistema na gumagana nang mag-isa. Lahat ay nakasalalay sa isa't isa (halimbawa: Nervous at Endocrine para sa kontrol, Cardiovascular at Respiratory para sa oxygen).</p>
+                <p><b>2. Life Cycle:</b> Mula zygote, embryo, fetus, pagsilang, paglaki, hanggang sa pagtanda—ang katawan ay patuloy na nag-a-adjust at nag-aayos (homeostasis).</p>
             </div>
             <div class="card">
-                <div class="card-title">📝 5-Item Quiz</div>
+                <div class="card-title">📝 5-Item Mastery Quiz</div>
                 <div class="quiz-container" data-answer="0">
-                    <p class="quiz-question">1. Ano ang tawag sa mas nangingibabaw na gene trait?</p>
+                    <p class="quiz-question">1. Ano ang tawag sa katangian ng katawan na panatilihing matatag at balanse ang panloob na kalagayan sa kabila ng mga pagbabago sa labas?</p>
                     <div class="options-grid">
-                        <button class="option-btn" onclick="checkAnswer(this, 0, 0)">A) Dominant</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 1, 0)">B) Recessive</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 2, 0)">C) Mutation</button>
-                        <button class="option-btn" onclick="checkAnswer(this, 3, 0)">D) Cellular</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 0, 0)">A) Homeostasis</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 1, 0)">B) Metabolism</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 2, 0)">C) Mitosis</button>
+                        <button class="option-btn" onclick="checkAnswer(this, 3, 0)">D) Digestion</button>
                     </div>
-                    <div class="explanation">Tamang Sagot: <b>A) Dominant trait</b>.</div>
+                    <div class="explanation">Tamang Sagot: <b>A) Homeostasis</b>. Ito ang pinakapuso ng buong Anatomy and Physiology!</div>
                 </div>
             </div>
         </div>
+
 
     </main>
 
@@ -886,12 +1000,103 @@
             contents[index].classList.add('active');
             navItems[index].classList.add('active');
             
-            // Scroll to top of main area
             document.getElementById('mainContainer').scrollTop = 0;
         }
 
-        function playM1Game() {
-            alert('Mahusay! Na-tag mo nang tama ang anterior at posterior positions!');
+        function checkM1Game() {
+            const val = document.getElementById('m1-input').value.trim().toLowerCase();
+            const fb = document.getElementById('m1-feedback');
+            if (val === 'anterior' || val === 'harapan') {
+                fb.style.color = 'var(--success)';
+                fb.textContent = 'Mahusay! Tama ang iyong sagot.';
+            } else {
+                fb.style.color = 'var(--error)';
+                fb.textContent = 'Subukang muli! Hint: Anterior.';
+            }
+        }
+
+        function checkM2Game() {
+            const val = document.getElementById('m2-input').value.trim().toLowerCase();
+            const fb = document.getElementById('m2-feedback');
+            if (val.includes('base') || val.includes('alkaline')) {
+                fb.style.color = 'var(--success)';
+                fb.textContent = 'Tama! Base o Alkaline.';
+            } else {
+                fb.style.color = 'var(--error)';
+                fb.textContent = 'Huwag sumuko! Nagsisimula sa letrang B.';
+            }
+        }
+
+        function checkM3Game() {
+            const val = document.getElementById('m3-input').value.trim().toLowerCase();
+            const fb = document.getElementById('m3-feedback');
+            if (val.includes('mitochondria')) {
+                fb.style.color = 'var(--success)';
+                fb.textContent = 'Perfect! Mitochondria.';
+            } else {
+                fb.style.color = 'var(--error)';
+                fb.textContent = 'Medyo malapit na! Nagsisimula sa M.';
+            }
+        }
+
+        function checkM4Game() {
+            const val = document.getElementById('m4-input').value.trim().toLowerCase();
+            const fb = document.getElementById('m4-feedback');
+            if (val.includes('epithelial') || val.includes('epitlium')) {
+                fb.style.color = 'var(--success)';
+                fb.textContent = 'Magaling! Epithelial tissue.';
+            } else {
+                fb.style.color = 'var(--error)';
+                fb.textContent = 'Subukan ulit! Nagsisimula sa E.';
+            }
+        }
+
+        function checkM5Game() {
+            const val = document.getElementById('m5-input').value.trim().toLowerCase();
+            const fb = document.getElementById('m5-feedback');
+            if (val.includes('dermis')) {
+                fb.style.color = 'var(--success)';
+                fb.textContent = 'Magaling! Dermis.';
+            } else {
+                fb.style.color = 'var(--error)';
+                fb.textContent = 'Subukang muli! Nagsisimula sa D.';
+            }
+        }
+
+        function checkM6Game() {
+            const val = document.getElementById('m6-input').value.trim();
+            const fb = document.getElementById('m6-feedback');
+            if (val === '206') {
+                fb.style.color = 'var(--success)';
+                fb.textContent = 'Tumpak! 206 ang buto ng adult.';
+            } else {
+                fb.style.color = 'var(--error)';
+                fb.textContent = 'Mali ang numero. Hint: 200 plus six.';
+            }
+        }
+
+        function checkM7Game() {
+            const val = document.getElementById('m7-input').value.trim().toLowerCase();
+            const fb = document.getElementById('m7-feedback');
+            if (val.includes('hinge')) {
+                fb.style.color = 'var(--success)';
+                fb.textContent = 'Tama! Hinge joint.';
+            } else {
+                fb.style.color = 'var(--error)';
+                fb.textContent = 'Huwag sumuko! Nagsisimula sa H.';
+            }
+        }
+
+        function checkM8Game() {
+            const val = document.getElementById('m8-input').value.trim().toLowerCase();
+            const fb = document.getElementById('m8-feedback');
+            if (val.includes('cardiac') || val.includes('puso')) {
+                fb.style.color = 'var(--success)';
+                fb.textContent = 'Perpekto! Cardiac muscle.';
+            } else {
+                fb.style.color = 'var(--error)';
+                fb.textContent = 'Subukan ulit!';
+            }
         }
 
         function checkAnswer(button, selectedIndex, correctIndex) {
@@ -899,7 +1104,6 @@
             const buttons = container.querySelectorAll('.option-btn');
             const explanation = container.querySelector('.explanation');
 
-            // Disable all options after clicking
             buttons.forEach(btn => btn.disabled = true);
 
             if (selectedIndex === correctIndex) {
@@ -911,6 +1115,141 @@
 
             explanation.style.display = 'block';
         }
+
+                function checkM9Game() {
+            const val = document.getElementById('m9-input').value.trim().toLowerCase();
+            const fb = document.getElementById('m9-feedback');
+            if (val.includes('axon')) {
+                fb.style.color = 'var(--success)';
+                fb.textContent = 'Tama! Axon ang nagpapadala ng signals.';
+            } else {
+                fb.style.color = 'var(--error)';
+                fb.textContent = 'Subukang muli! Nagsisimula ito sa letrang A.';
+            }
+        }
+
+        function checkM10Game() {
+            const val = document.getElementById('m10-input').value.trim().toLowerCase();
+            const fb = document.getElementById('m10-feedback');
+            if (val.includes('retina')) {
+                fb.style.color = 'var(--success)';
+                fb.textContent = 'Tumpak! Retina ang nasa likod ng mata.';
+            } else {
+                fb.style.color = 'var(--error)';
+                fb.textContent = 'Mali. Hint: Nagsisimula sa letrang R.';
+            }
+        }
+
+        function checkM11Game() {
+            const val = document.getElementById('m11-input').value.trim().toLowerCase();
+            const fb = document.getElementById('m11-feedback');
+            if (val.includes('pituitary')) {
+                fb.style.color = 'var(--success)';
+                fb.textContent = 'Magaling! Pituitary gland.';
+            } else {
+                fb.style.color = 'var(--error)';
+                fb.textContent = 'Subukan ulit! Kilala bilang master gland.';
+            }
+        }
+
+        function checkM12Game() {
+            const val = document.getElementById('m12-input').value.trim().toLowerCase();
+            const fb = document.getElementById('m12-feedback');
+            if (val.includes('red blood cell') || val.includes('rbc') || val.includes('pulang selula')) {
+                fb.style.color = 'var(--success)';
+                fb.textContent = 'Perpekto! Red Blood Cells (RBC).';
+            } else {
+                fb.style.color = 'var(--error)';
+                fb.textContent = 'Subukan muli! Tawag dito ay RBC.';
+            }
+        }
+
+                function checkM13Game() {
+            const val = document.getElementById('m13-input').value.trim();
+            const fb = document.getElementById('m13-feedback');
+            if (val === '4' || val === 'apat') {
+                fb.style.color = 'var(--success)';
+                fb.textContent = 'Tama! May 4 na chambers ang puso (2 atria, 2 ventricles).';
+            } else {
+                fb.style.color = 'var(--error)';
+                fb.textContent = 'Mali ang numero. Hint: Dalawang atrium at dalawang ventricle.';
+            }
+        }
+
+        function checkM14Game() {
+            const val = document.getElementById('m14-input').value.trim().toLowerCase();
+            const fb = document.getElementById('m14-feedback');
+            if (val.includes('alveoli') || val.includes('alveolus')) {
+                fb.style.color = 'var(--success)';
+                fb.textContent = 'Magaling! Alveoli ang tawag dito.';
+            } else {
+                fb.style.color = 'var(--error)';
+                fb.textContent = 'Subukang muli! Nagsisimula ito sa letrang A.';
+            }
+        }
+
+        function checkM15Game() {
+            const val = document.getElementById('m15-input').value.trim().toLowerCase();
+            const fb = document.getElementById('m15-feedback');
+            if (val.includes('small intestine') || val.includes('maliit na bituka')) {
+                fb.style.color = 'var(--success)';
+                fb.textContent = 'Tumpak! Small intestine ang pangunahing nag-a-absorb ng nutrients.';
+            } else {
+                fb.style.color = 'var(--error)';
+                fb.textContent = 'Subukan ulit! Hint: Small intestine.';
+            }
+        }
+
+        function checkM16Game() {
+            const val = document.getElementById('m16-input').value.trim().toLowerCase();
+            const fb = document.getElementById('m16-feedback');
+            if (val.includes('nephron')) {
+                fb.style.color = 'var(--success)';
+                fb.textContent = 'Perpekto! Nephrons ang functional filtering units ng kidneys.';
+            } else {
+                fb.style.color = 'var(--error)';
+                fb.textContent = 'Medyo malapit na! Nagsisimula ito sa letrang N.';
+            }
+        }
+
+                function checkM17Game() {
+            const val = document.getElementById('m17-input').value.trim().toLowerCase();
+            const fb = document.getElementById('m17-feedback');
+            if (val.includes('sperm') || val.includes('spermatozoan')) {
+                fb.style.color = 'var(--success)';
+                fb.textContent = 'Tama! Sperm ang male sex cell.';
+            } else {
+                fb.style.color = 'var(--error)';
+                fb.textContent = 'Subukang muli! Nagsisimula ito sa letrang S.';
+            }
+        }
+
+        function checkM18Game() {
+            const val = document.getElementById('m18-input').value.trim().toLowerCase();
+            const fb = document.getElementById('m18-feedback');
+            if (val.includes('thymus') || val.includes('spleen')) {
+                fb.style.color = 'var(--success)';
+                fb.textContent = 'Magaling! Thymus o Spleen ang tamang sagot.';
+            } else {
+                fb.style.color = 'var(--error)';
+                fb.textContent = 'Medyo malapit na! Hint: Thymus gland.';
+            }
+        }
+
+        function checkM19Game() {
+            const val = document.getElementById('m19-input').value.trim().toLowerCase();
+            const fb = document.getElementById('m19-feedback');
+            if (val.includes('homeostasis')) {
+                fb.style.color = 'var(--success)';
+                fb.textContent = 'Napakahusay! Tagumpay mong nakumpleto ang buong KiddoA&P Academy!';
+            } else {
+                fb.style.color = 'var(--error)';
+                fb.textContent = 'Subukan ulit! Tinalakay natin ito simula pa sa Module 1.';
+            }
+        }
+
+
+
     </script>
 </body>
 </html>
